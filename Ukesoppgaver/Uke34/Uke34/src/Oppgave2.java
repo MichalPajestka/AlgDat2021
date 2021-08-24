@@ -17,13 +17,13 @@ public class Oppgave2 {
             int value = a[i];
             int index = i;
 
-            //sjekk om verdien er mindre enn det vi har sett tidligere
+            //sjekk om verdien er større enn det vi har sett tidligere
             if (value >= maks_value){
                 maks_value = value;
                 maks_index = index;
             }
         }
-        // returner index til minste verdi
+        // returner index til største verdi
         return maks_index;
     }
 }
