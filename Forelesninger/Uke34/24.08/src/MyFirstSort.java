@@ -1,4 +1,5 @@
 public class MyFirstSort {
+
     public static void main(String[] args) {
 
         int[] values = {1, 7, 2, 4, 6, 9};
@@ -25,8 +26,8 @@ public class MyFirstSort {
     public static int findMax(int[] values, int fra, int til){
         //initialiser ved å se på første "kort"
         //Dette er det største tallet jeg har funnet så langt
-        int index = 0;
-        int max_value = values[0];
+        int index = fra;
+        int max_value = values[fra];
 
         //Sjekk at grensene fo løkken er riktig
         // [1, values.lengt)
