@@ -1,16 +1,21 @@
-package seksjon122.hjelpeklasser;
+package seksjon131;
 
 
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.NoSuchElementException;
+import java.util.Random;
 
 public class Tabell     // Samleklasse for tabellmetoder
 {
+
+
     public static void bytt(int[] a, int i, int j) {
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
+
+
 
     private Tabell() {
     }   // privat standardkonstruktør - hindrer instansiering
@@ -218,5 +223,33 @@ public class Tabell     // Samleklasse for tabellmetoder
 
         return new int[]{m, nm};      // m i posisjon 0 , nm i posisjon 1
     }*/
+
+    public static void snu(int[] a, int v, int h)  // snur intervallet a[v:h]
+    {
+        while (v < h) bytt(a, v++, h--);
+    }
+
+    public static void snu(int[] a, int v)  // snur fra og med v og ut tabellen
+    {
+        snu(a, v, a.length - 1);
+    }
+
+    public static void snu(int[] a)  // snur hele tabellen
+    {
+        snu(a, 0, a.length - 1);
+    }
+
+    public static boolean nestePermutasjon(int[] a)
+    {
+        int i = a.length - 2;                    // i starter nest bakerst
+        while (i >= 0 && a[i] > a[i + 1]) i--;   // går mot venstre
+        if (i < 0) return false;                 // a = {n, n-1, . . . , 2, 1}
+
+        int j = a.length - 1;                    // j starter bakerst
+        while (a[j] < a[i]) j--;                 // stopper når a[j] > a[i]
+        bytt(a,i,j); snu(a,i + 1);               // bytter og snur
+
+        return true;                             // en ny permutasjon
+    }
 }
 
